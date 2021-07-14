@@ -1,0 +1,34 @@
+Departments
+-
+dept_no VARCHAR(10),
+dept_name VARCHAR(30)
+
+Dept_Emp
+-
+emp_no INT, FK >- Employees.emp_no
+dept_no VARCHAR(10); FK >- Departments.dept_no
+
+Dept_Manager
+-
+dept_no VARCHAR(10),
+emp_no INT); FK >- Dept_Emp.emp_no
+
+Employees
+-
+emp_no INT, FK >- Salary.emp_no
+emp_title_id VARCHAR(30), FK >- Titles.title_id
+birth_date DATE,
+first_name VARCHAR(40),
+last_name VARCHAR(40),
+sex VARCHAR(2),
+hire_date DATE);
+
+Salary
+-
+emp_no INT
+salary INT
+
+Titles
+-
+title_id VARCHAR(10),
+title VARCHAR(40));
