@@ -1,0 +1,67 @@
+-- DROP TABLE titles
+
+CREATE TABLE titles(
+title_id VARCHAR(10) NOT NULL PRIMARY KEY,
+title VARCHAR(40));
+-- SELECT * FROM titles
+
+-- DROP TABLE employees
+
+CREATE TABLE employees(
+emp_no INT PRIMARY KEY NOT NULL,
+emp_title_id VARCHAR(30) NOT NULL,
+birth_date DATE,
+first_name VARCHAR(40) NOT NULL,
+last_name VARCHAR(40) NOT NULL,
+sex VARCHAR(2),
+hire_date DATE,
+FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
+);
+-- SELECT * FROM employees
+
+-- DROP TABLE salary
+
+CREATE TABLE salary(
+emp_no INT PRIMARY KEY NOT NULL,
+salary INT,
+FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+);
+-- SELECT * FROM salary
+
+
+-- DROP TABLE departments
+
+CREATE TABLE departments(
+dept_no VARCHAR(10) PRIMARY KEY NOT NULL,
+dept_name VARCHAR(30) NOT NULL
+);
+-- SELECT * FROM departments
+
+-- DROP TABLE dept_emp
+
+CREATE TABLE dept_emp(
+emp_no INT NOT NULL,
+dept_no VARCHAR(10) NOT NULL,
+FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
+);
+-- SELECT * FROM dept_emp
+
+-- DROP TABLE dept_manager
+
+CREATE TABLE dept_manager(
+dept_no VARCHAR(10) NOT NULL,
+emp_no INT NOT NULL,
+FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+);
+-- SELECT * FROM dept_manager
+
+
+/*
+DROP TABLE titles
+DROP TABLE salary
+DROP TABLE dept_emp
+DROP TABLE departments
+DROP TABLE dept_manager
+DROP TABLE employees
+/*
